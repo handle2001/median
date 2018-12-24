@@ -1,3 +1,4 @@
+// Package median provides functions for determining median values of a set
 package median
 
 import (
@@ -5,30 +6,20 @@ import (
 	"sort"
 )
 
-// Write a function that takes a set of unsorted values and finds their median.
-
-func getMedian(s []int) int {
-	var median int
-	// To find the median of a set takes  steps:
-	// 1. Sort the set from smallest to largest
+// GetMedian returns the median value of a set
+func GetMedian(s []int) []int {
+	var median []int
 	sort.Ints(s)
-	// 2. Find the length of the set
 	slen := len(s)
-	// 3. If the length of the set is odd, adding one to the length and then
-	//		dividing that number by two gives the index of the median.
 	if slen%2 != 0 {
 		mIndex := slen / 2
-		median = s[mIndex]
-
-		// 4. If the length of the set is even, a few more steps are needed:
+		median = append(median, s[mIndex])
 	} else if slen%2 == 0 {
-		//	4a. Divide the length by two, this gives a float
 		x := float64(slen / 2)
-		//	4b. Round the float to the nearest integer up and down
 		ceiling := int(math.Ceil(x))
 		floor := int(math.Floor(x))
-		//	4c. Average the values found at the two indexes found in 4b
-		median = (s[ceiling] + s[floor]) / 2
+		m := (s[ceiling] + s[floor]) / 2
+		median = append(median, m)
 	}
 
 	return median
