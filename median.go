@@ -1,7 +1,6 @@
-package main
+package median
 
 import (
-	"fmt"
 	"math"
 	"sort"
 )
@@ -34,16 +33,3 @@ func getMedian(s []int) int {
 
 	return median
 }
-
-func main() {
-	set := []int{90, 92, 93, 88, 95, 88, 97, 87, 98}
-	median := getMedian(set)
-	fmt.Printf("The median is %d\n", median)
-}
-
-// TODO:
-// 1. Setup RESTful API to accept HTTP request containing set of values in JSON
-// 2. Format and return JSON object containing the median value of the set.
-// 3. Build a container that runs the median app
-// 4. Run web benchmarks against the container
-// 5. Deploy the container to a Kubernetes cluster
